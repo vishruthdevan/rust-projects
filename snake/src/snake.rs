@@ -23,3 +23,38 @@ impl Direction {
         }
     }
 }
+
+struct Block {
+    x: i32,
+    y: i32,
+}
+
+pub struct Snake {
+    direction: Direction,
+    body: LinkedList<Block>,
+    tail: Option<Block>,
+}
+
+
+impl Snake {
+    pub fn new(x: 132, y: i32) → Snake {
+        let mut body: LinkedList<Block> =LinkedList :: new();
+
+        body.push_back(Block {
+            x: x + 2,
+        });
+        body.push_back(Block {
+            x: x + 1,
+            y,
+        });
+        body.push_back(Block {
+            x,
+            y,
+        });
+        Snake {
+            direction: Direction :: Right,
+            body,
+            tail: None,
+        }
+    }
+}
