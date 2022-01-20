@@ -37,7 +37,7 @@ pub fn draw_rectangle(
             x,
             y,
             BLOCK_SIZE * (width as f64),
-            BLOCK_SIZE * (width as f64),
+            BLOCK_SIZE * (height as f64),
         ],
         con.transform,
         g,
