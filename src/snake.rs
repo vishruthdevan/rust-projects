@@ -6,7 +6,7 @@ use crate::draw::draw_block;
 
 const SNAKE_COLOUR: Color = [0.0, 0.80, 0.0, 1.0];
 
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, PartialEq)]
 pub enum Direction {
     Up,
     Down,
@@ -25,7 +25,7 @@ impl Direction {
     }
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone)]
 struct Block {
     x: i32,
     y: i32,
@@ -89,7 +89,7 @@ impl Snake {
             },
         };
 
-        self.body.push_back(new_block);
+        self.body.push_front(new_block);
         let removed_block = self.body.pop_back().unwrap();
         self.tail = Some(removed_block);
     }
